@@ -25,11 +25,11 @@
     <script>
       const hideFullScreenButton = "";
       const buildUrl = "Build";
-      const loaderUrl = buildUrl + "/NightWebGL.loader.js";
+      const loaderUrl = buildUrl + "/gl_builtin_rp.loader.js";
       const config = {
-        dataUrl: buildUrl + "/NightWebGL.data",
-        frameworkUrl: buildUrl + "/NightWebGL.framework.js",
-        codeUrl: buildUrl + "/NightWebGL.wasm",
+        dataUrl: buildUrl + "/gl_builtin_rp.data",
+        frameworkUrl: buildUrl + "/gl_builtin_rp.framework.js",
+        codeUrl: buildUrl + "/gl_builtin_rp.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "urp-test",
@@ -59,10 +59,19 @@
         return false;
       }());
 
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) 
+      {
         container.className = "unity-mobile";
         config.devicePixelRatio = 1;
       }
+      
+      var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+      if (isSafari) 
+      {
+        container.className = "unity-safari";
+        config.devicePixelRatio = 1;
+      }
+      
       loadingCover.style.display = "";
 
       const script = document.createElement("script");
