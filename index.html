@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>exodus</title>
+    <title>urp-test</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
@@ -31,8 +31,8 @@
         frameworkUrl: buildUrl + "/exodus.framework.js",
         codeUrl: buildUrl + "/exodus.wasm",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "Cauldron",
-        productName: "exodus",
+        companyName: "DefaultCompany",
+        productName: "urp-test",
         productVersion: "0.1",
       };
 
@@ -58,6 +58,19 @@
         }
         return false;
       }());
+
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) 
+      {
+        container.className = "unity-mobile";
+        config.devicePixelRatio = 1;
+      }
+      
+      var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+      if (isSafari) 
+      {
+        container.className = "unity-safari";
+        config.devicePixelRatio = 1;
+      }
       
       loadingCover.style.display = "";
 
