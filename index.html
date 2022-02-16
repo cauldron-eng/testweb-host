@@ -25,11 +25,11 @@
     <script>
       const hideFullScreenButton = "";
       const buildUrl = "Build";
-      const loaderUrl = buildUrl + "/exodus.loader.js";
+      const loaderUrl = buildUrl + "/fates-exodus-webgl.loader.js";
       const config = {
-        dataUrl: buildUrl + "/exodus.data",
-        frameworkUrl: buildUrl + "/exodus.framework.js",
-        codeUrl: buildUrl + "/exodus.wasm",
+        dataUrl: buildUrl + "/fates-exodus-webgl.data",
+        frameworkUrl: buildUrl + "/fates-exodus-webgl.framework.js",
+        codeUrl: buildUrl + "/fates-exodus-webgl.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "urp-test",
@@ -62,13 +62,6 @@
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) 
       {
         container.className = "unity-mobile";
-        config.devicePixelRatio = 1;
-      }
-      
-      var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-      if (isSafari) 
-      {
-        container.className = "unity-safari";
         config.devicePixelRatio = 1;
       }
       
